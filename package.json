@@ -1,0 +1,48 @@
+{
+  "name": "node-pg-ngMaterial-mapgl-template",
+  "author": "Spatial Development International, LLC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spatialdev/node-pg-ngMaterial-mapgl-template.git"
+  },
+  "private": false,
+  "version": "1.0.0",
+  "description": "A starter project for AngularJS",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "1.5.6",
+    "angular-animate": "1.3.15",
+    "angular-aria": "1.3.15",
+    "angular-material": "0.10.1",
+    "angular-route": "1.4.0",
+    "body-parser": "1.5.2",
+    "bower": "1.3.1",
+    "express": "4.7.2",
+    "grunt": "0.4.5",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-csslint": "1.0.0",
+    "grunt-contrib-jshint": "1.0.0",
+    "grunt-contrib-less": "1.3.0",
+    "grunt-contrib-uglify": "1.0.1",
+    "grunt-contrib-watch": "1.0.0",
+    "http-server": "0.6.1",
+    "pg": "4.4.0",
+    "shelljs": "0.2.6"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install"
+  },
+  "dependencies": {
+    "cheap-ruler": "2.4.1",
+    "express-session": "1.13.0",
+    "method-override": "2.3.5",
+    "morgan": "1.7.0",
+    "passport": "0.3.2",
+    "passport-github2": "0.1.10",
+    "passport-linkedin": "1.0.0",
+    "passport-twitter": "1.0.4",
+    "pg-native": "1.10.0",
+    "q": "1.4.1"
+  }
+}

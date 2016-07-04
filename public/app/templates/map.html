@@ -1,0 +1,117 @@
+<div id='map'></div>
+
+<md-button class="md-fab add-pin" aria-label="Add pin" ng-click='toggleAddPin()' ng-class={active:addPin}>
+    <i class="material-icons">add_location</i>
+</md-button>
+
+ <!-- Left Side Nav-->
+    <md-sidenav md-is-open="stateService.isParam('left-panel')"
+                class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">Sidenav Left</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <form>
+                <md-input-container>
+                    <label for="testInput">Test input</label>
+                    <input type="text" id="testInput"
+                           ng-model="data" md-autofocus>
+                </md-input-container>
+            </form>
+            <md-button ng-click="close('left')" class="md-primary">
+                Close Left SideNav
+            </md-button>
+        </md-content>
+    </md-sidenav>
+
+
+    <!-- Toolbar -->
+    <md-toolbar class="md-hue-2" id='footer'>
+        <div class="md-toolbar-tools">
+            <md-button ng-click="stateService.openParam('left-panel')" class="md-icon-button" aria-label="Settings">
+                <i class="material-icons">menu</i>
+            </md-button>
+            <h2>
+                <span>{{title}}</span>
+            </h2>
+            <span flex></span>
+            <md-button ng-click="stateService.toggleParam('right-panel')"  class="md-icon-button" aria-label="More">
+                <i class="material-icons">more_vert</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+<!-- Right Side Nav-->
+<md-sidenav md-is-open="stateService.isParam('right-panel')" class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+    <div ng-cloak>
+        <!-- add pin -->
+        <md-content>
+            <div class='add-harassment-form' ng-show='addPin'>
+                <div class='header'>
+                    Report Harassment
+                    <span class='close' ng-click="stateService.closeParam('right-panel')">X</span>
+                </div>
+                <div class='form'>
+                        <!-- Form to fill out harasment -->
+                        <md-input-container md-no-float class="md-block">
+                          <input ng-model="user.harassment" placeholder="What did you experience:">
+                        </md-input-container>
+
+                        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+
+
+                        <div class='slider'>How safe did you feel?
+                             <md-radio-group ng-model="safety">
+                                <div class='safety-button'>
+                                    <div class='safety-label'> Extremely Unsafe </div>
+                                    <md-radio-button value="1" aria-label='extremely-unsafe'></md-radio-button>
+                                </div>
+                                <div class='safety-button'>
+                                    <div class='safety-label'></div>
+                                    <md-radio-button value="2" aria-label='medium-unsafe'></md-radio-button>
+                                </div>
+                                <div class='safety-button'>
+                                    <div class='safety-label'>Unsafe</div>
+                                    <md-radio-button value="3" aria-label='unsafe'></md-radio-button>
+                                </div>
+                                <div class='safety-button'>
+                                    <div class='safety-label'></div>
+                                    <md-radio-button value="4" aria-label='medium-safe'></md-radio-button>
+                                </div>
+                                <div class='safety-button'>
+                                    <div class='safety-label'>Safe</div>
+                                    <md-radio-button value="5" aria-label='safe'></md-radio-button>
+                                </div>
+                                <div class='safety-button'>
+                                    <div class='safety-label'>NA</div>
+                                    <md-radio-button value="null" aria-label='null'></md-radio-button>
+                                </div>
+                
+                            </md-radio-group>
+                        </div>
+
+                    <md-input-container md-no-float class="md-block">
+                      <input ng-model="user.comments" placeholder="Anything else you would like to add:">
+                    </md-input-container>
+
+                    <md-button class="md-primary" ng-click='saveMarker()'>Save</md-button>
+                </div>
+          </div>
+          <!-- display marker details -->
+          <div class='show-pin' ng-show='showPinDetails'>
+            <div class='header'>
+                Harassment Details
+                <span class='close' ng-click="stateService.closeParam('right-panel')">X</span>
+            </div>
+            <div class='marker-details' ng-repeat='(k,v) in markerDetails.properties'>
+                {{k}} ::: {{v}}
+            </div>
+          </div>
+        </md-content>
+
+    </div>
+</md-sidenav>
+
+
+
